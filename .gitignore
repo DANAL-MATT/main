@@ -1,2 +1,5 @@
 db.sqlite3
 geckodriver.log
+*.pyc/*.cmake/*DS_Store/.user
+__pycache__
+*.pyc
