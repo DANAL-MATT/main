@@ -2,11 +2,43 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Contact Tracing List</title>
+	<title>GotchaNovelist</title>
 </head>
-<body>
-	<h1>Let's gooooooo</h1>
 
-</body>
+<body>
+        <form name="myForm" id="TestForm" method = "POST">
+                <h1>Test Form</h1>
+                <label>Name: </label>
+                <input type="text" id="for1Form" name="for1Form" placeholder="Enter name." required/>
+
+                <br>
+                <br>
+
+                <label>Number: </label>
+                <input type="number" id="for2Form" name="for2Form" min="1" max="5" required/>
+
+                <br>
+                <br>
+
+                <label>Sample Paragraph</label>
+                <br>
+
+                    <textarea id="for3Form" placeholder="Sample paragraphs go here." name="for3Form" rows="5"required></textarea>
+
+                <br>
+                <br>
+
+                <input type="submit" id="btnConfirm" name="btnConfirm" value="Submit"/>
+
+                {% csrf_token %}
+
+           </form>
+
+           <hr>
+           <table id="testTable">
+               <tr>
+                   <td>1: {{postName}} {{postNumber}} {{postParagraph}}</td>
+               </tr>
+           </table>
+    </body>
 </html>
