@@ -1,44 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>GotchaNovelist</title>
+	<meta charset="utf-8" name="viewport" content= "width=device-width, initial-scale=1.0, user-scalable=no">
+	
+	<title>The Author</title>
+
+	<style type="text/css">
+		body{background-color:#aae4da; font-family: Ubuntu;}
+
+		a:visited{color: #D67F8E;}
+
+		.containerauthor {
+			display: grid;
+			grid-template-areas:
+				"title title title directory"
+				"area2 area1 area3 directory"
+				"area2 area1 area3 directory";
+
+
+			grid-gap: 2px;
+			padding: 15px;
+
+			}
+
+		.titleauthor{grid-area: title; padding: 10px; background-color: #E4AAB4;}
+		.directoryarea{grid-area: directory; padding: 10px; background-color: #E4AAB4;}
+		.authordescription{grid-area: area1; padding: 10px; background-color: #E4AAB4;}
+		.form{grid-area: area2; padding: 10px; background-color: #E4AAB4;}
+		.iframe{grid-area: area3; padding: 10px; background-color: #E4AAB4;}
+
+		.formwidths{display: inline-block; min-width: 75px;}
+
+	</style>
+
+	<script type="text/javascript">
+		// function formAuthor(sub, name, email, number, dropdown, query) {
+		// 	var emailMessage = "mailto:mdfordomain@gmail.com" + "?subject=" + encodeURI(sub) + "&body=" + "Name: " + encodeURI(name) + "%0D%0AEmail: " + encodeURI(email) + "%0D%0ANumber: " +
+		// 	 encodeURI(number) + "%0D%0AQuery Type: " + encodeURI(dropdown) + "%0D%0AQuery:%0D%0A" + encodeURI(query);
+			 
+		// 	window.location = emailMessage;
+
+		// 	if (name == "") {
+		// 		return false
+		// 	}
+			
+		// }
+
+		function checkNumber(chkbox, txtbox) {
+
+			if (document.getElementById(chkbox).checked == true) {
+				document.getElementById(txtbox).disabled = 'true';
+			}
+
+			else {
+				document.getElementById(txtbox).removeAttribute("disabled");
+			}
+		}
+	</script>
+
 </head>
+<body class="authorbody">
 
-<body>
-        <form name="myForm" id="TestForm" method = "POST">
-                <h1>Test Form</h1>
-                <label>Name: </label>
-                <input type="text" id="for1Form" name="for1Form" placeholder="Enter name." required/>
+	<div class="containerauthor">
 
-                <br>
-                <br>
+		<div class="titleauthor">
 
-                <label>Number: </label>
-                <input type="number" id="for2Form" name="for2Form" min="1" max="5" required/>
+			<h2><center>The GOTCHA! Novelist</center></h2>
 
-                <br>
-                <br>
+		</div>
 
-                <label>Sample Paragraph</label>
-                <br>
+		<div class="iframe">
+			<center>
+				<table id="testTable">
+					<tr>
+						<td>User Information: {{postName}}, {{postEmail}}, {{postNumber}}, {{postQuery}}</td>
+					</tr>
+				</table>
+			</center>
+		</div>
 
-                    <textarea id="for3Form" placeholder="Sample paragraphs go here." name="for3Form" rows="5"required></textarea>
+		<div class="authordescription">
 
-                <br>
-                <br>
+			<h5><center>
+				Greetings! I am the Gotcha Novelist. Why am I called that?
 
-                <input type="submit" id="btnConfirm" name="btnConfirm" value="Submit"/>
+				<p>You see, Gotcha Novelist is a wordplay on its own. Gotcha is a homonym of Gacha, which is a kind of toy vending machine in Japan. It has become a popular feature in most of the games I review in the Mobage section.  The “Gotcha!” comes from the happy feeling that we exclaim when getting good characters from the gacha.</p>
 
-                {% csrf_token %}
+				<p>The second part, Novelist, stems from my hobby which is writing. I like the title “Novelist” since it somewhat represents a dream of mine. I love writing as well as playing games, so I thought—"Why not make it into an idea for a website?” And thus, GotchaNovelist was born.</p>
 
-           </form>
+				<p><a href="index.html">Let's go back to looking at the featured Mobage and Anime!</a></p>
+	                        
+	            <p>You can contact me through <a href="https://twitter.com/GotchaNovelist">Twitter</a>, via my email: <em><b>mdfordomain@gmail.com</b></em>, or <em>through the form on the left</em>, where you can ask me about anything, or if you have any inquiries about the site or the author. I may sometimes post the questions (and their answers) to The Novelist's Log!</p>
+			</center></h5>
 
-           <hr>
-           <table id="testTable">
-               <tr>
-                   <td>1: {{postName}} {{postNumber}} {{postParagraph}}</td>
-               </tr>
-           </table>
-    </body>
+		</div>
+
+		<div class="form">
+			<form id="formGNPage" method="POST">
+				<center><h4>Contact GotchaNovelist here!</h4></center>
+				<label for = "user_name" class="formwidths">Name: </label>
+				<input id="userAuthor" type = "text" name = "user_name" placeholder="Up to 30 characters!" maxlength="30" size="30" required />
+				<br />
+				<br />
+
+				<label for = "user_email" class="formwidths">E-mail: </label>
+				<input id="emailAuthor" type = "email" name = "user_email" placeholder="E-mail address here!" size="30" required />
+				<br />
+				<br />
+
+				<label for = "user_number" class="formwidths">Phone Number: </label>
+				<br />
+				<input id="numAuthor" type = "tel" name = "user_number" size="30" />
+				<br />
+				<input id="checkAuthor" type="checkbox" name="nophonenumber" value="nophonenumber" onclick="checkNumber('checkAuthor', 'numAuthor')"> Check this if not applicable.
+				<br />
+				<br />
+
+				<label for="dropdown_select" class="formwidths">Query Type: </label>
+				<select id="dropdownAuthor" name="dropdown_select">
+					<option value="Featured/Personal" title="For questions that can be featured in the pages.">Featured/Personal</option>
+					<option value="Business" title="For any inquiries about the pages themselves; these will not be featured.">Business</option>
+					<option value="Others" title="For other inquiries that are not part of the two other criterias.">Others</option>
+				</select>
+				<br />
+				<br />
+
+				<label for = "user_query" class="formwidths">Query: </label>
+				<textarea id="queryAuthor" rows = "10" cols="30" name = "user_query" placeholder="Any questions? Queries to tell me?" required></textarea>
+				<br />
+
+				<center><input type = "submit" id = "confirmAuthor" value="Proceed!" /></center>
+
+				{% csrf_token %}
+
+			</form>
+		</div>
+
+		<div class="directoryarea">
+			<nav>
+
+			<h3>
+
+			Directory
+
+			<li title="Click here to head to the homepage!"><a href="index.html">Homepage</a></li>
+			<li title="Go to the Mobages page!"><a href="mobagepage.html">Mobages</a></li>
+			<li title="Head to the Anime page, click here!"><a href="animepage.html">Anime</a></li>
+			<li title="Find out more about the Author of the website!"><a href="author.html">Author</a></li>
+
+			</h3>
+			</nav>
+		</div>
+
+	</div>
+
+</body>
 </html>

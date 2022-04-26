@@ -1,11 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from GotchaSys.models import Item
 
 def MainPage(request):
-	item1 = Item()
-	item1.text1 = request.POST.get('postName', 'test')
-	item1.save()
-
-	return render(request, 'mainpage.html', {'postName': item1.text1,})
+    return render(request, 'mainpage.html', {'postName': request.POST.get('user_name'), 'postEmail': request.POST.get('user_email'), 'postNumber': request.POST.get('user_number'), 'postQuery': request.POST.get('user_query')})
 # Create your views here.
