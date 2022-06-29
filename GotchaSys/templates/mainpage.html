@@ -72,9 +72,12 @@
 		<div class="iframe">
 			<center>
 				<table id="testTable">
+					{% for item in forstoring %}
 					<tr>
-						<td>User Information: {{postName}}, {{postEmail}}, {{postNumber}}, {{postQuery}}</td>
+						<!-- <td>User Information: {{postName}}, {{postEmail}}, {{postNumber}}, {{postQuery}}</td> -->
+						<td>{{forloop.counter}}: {{item.name}}, {{item.email}}, {{item.number}}, {{item.query}}
 					</tr>
+					{% endfor %}
 				</table>
 			</center>
 		</div>
