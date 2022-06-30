@@ -7,13 +7,13 @@ class Games(models.Model):
 
 	#For Relationships#
 
-	Game_ID = models.CharField(max_length=40, primary_Key=True)
+	Game_ID = models.CharField(max_length=40, primary_key=True)
 
 	def __str__(self):
 		return self.Game_ID
 
 class Feedback(models.Model):
-	name = models.CharField(default="")
+	name = models.CharField(max_length=40)
 	email = models.EmailField()
 	number = models.IntegerField()
 	query = models.TextField(default="")
@@ -80,7 +80,7 @@ class CharType(models.Model):
 	  CharType_GameID = models.ForeignKey(Games, on_delete=models.CASCADE)
 
 	  def __str__(self):
-		return self.CharClass
+	  	return self.CharClass
 
 class Equipment(models.Model):
 	  
@@ -97,6 +97,6 @@ class Equipment(models.Model):
 	  Equip_Story = models.ForeignKey(Storylines, on_delete=models.CASCADE)
 
 	  def __str__(self):
-		return self.EquipID
+	  	return self.EquipID
 
 # Create your models here.

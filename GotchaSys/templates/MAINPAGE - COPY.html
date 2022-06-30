@@ -1,5 +1,3 @@
-{% extends 'boilerplates.html' %}
-{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +13,9 @@
 		.containerauthor {
 			display: grid;
 			grid-template-areas:
-				"area2 area1 area3"
-				"area2 area1 area3";
+				"title title title directory"
+				"area2 area1 area3 directory"
+				"area2 area1 area3 directory";
 
 
 			grid-gap: 2px;
@@ -24,8 +23,8 @@
 
 			}
 
-/*		.directoryarea{grid-area: directory; padding: 10px; background-color: #E4AAB4;}*/
-
+		.titleauthor{grid-area: title; padding: 10px; background-color: #E4AAB4;}
+		.directoryarea{grid-area: directory; padding: 10px; background-color: #E4AAB4;}
 		.authordescription{grid-area: area1; padding: 10px; background-color: #E4AAB4;}
 		.form{grid-area: area2; padding: 10px; background-color: #E4AAB4;}
 		.iframe{grid-area: area3; padding: 10px; background-color: #E4AAB4;}
@@ -60,7 +59,15 @@
 	</script>
 
 </head>
+<body class="authorbody">
+
 	<div class="containerauthor">
+
+		<div class="titleauthor">
+
+			<h2><center>The GOTCHA! Novelist</center></h2>
+
+		</div>
 
 		<div class="iframe">
 			<center>
@@ -78,14 +85,15 @@
 		<div class="authordescription">
 
 			<h5><center>
-				Greetings! This is the first page of the Boilerplate project.
+				Greetings! I am the Gotcha Novelist. Why am I called that?
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod leo id leo porta imperdiet at ac tellus. Donec lectus nulla, maximus nec est id, pulvinar gravida magna. Aenean tincidunt scelerisque nisl, vitae sollicitudin est rhoncus ut. Aliquam eget blandit risus. Pellentesque ut metus dui. Vestibulum velit justo, finibus vel viverra nec, blandit id urna. Pellentesque in molestie nibh. Suspendisse consequat sit amet sem nec malesuada. Mauris velit ipsum, sollicitudin vitae sagittis ut, iaculis eget magna.</p>
+				<p>You see, Gotcha Novelist is a wordplay on its own. Gotcha is a homonym of Gacha, which is a kind of toy vending machine in Japan. It has become a popular feature in most of the games I review in the Mobage section.  The “Gotcha!” comes from the happy feeling that we exclaim when getting good characters from the gacha.</p>
 
-				<p> Curabitur euismod, ex non sagittis tristique, orci dui blandit sem, sed tristique mauris lectus a risus. Morbi euismod magna mauris. Donec vestibulum hendrerit neque at tristique. Curabitur rutrum nunc non tincidunt pretium. Mauris feugiat volutpat tortor ac dapibus. In mollis dignissim suscipit. In eleifend, nulla vitae egestas vestibulum, nulla tortor placerat leo, eu feugiat est neque in turpis. Fusce sed faucibus odio, vitae bibendum ex. Nam quis turpis scelerisque, hendrerit turpis id, sollicitudin sem. Phasellus egestas arcu ligula, at aliquam lectus efficitur at. Quisque dolor tortor, mattis nec semper nec, aliquam ultricies leo. Pellentesque augue nibh, fringilla finibus facilisis at, porta non lectus. Aenean scelerisque non mi eu tincidunt. Etiam ultricies augue erat, a dictum sapien pulvinar quis. </p>
+				<p>The second part, Novelist, stems from my hobby which is writing. I like the title “Novelist” since it somewhat represents a dream of mine. I love writing as well as playing games, so I thought—"Why not make it into an idea for a website?” And thus, GotchaNovelist was born.</p>
 
-				<p><a href="/secondpage">Click here to go to the second page.</a></p>
-
+				<p><a href="index.html">Let's go back to looking at the featured Mobage and Anime!</a></p>
+	                        
+	            <p>You can contact me through <a href="https://twitter.com/GotchaNovelist">Twitter</a>, via my email: <em><b>mdfordomain@gmail.com</b></em>, or <em>through the form on the left</em>, where you can ask me about anything, or if you have any inquiries about the site or the author. I may sometimes post the questions (and their answers) to The Novelist's Log!</p>
 			</center></h5>
 
 		</div>
@@ -131,7 +139,7 @@
 			</form>
 		</div>
 
-<!-- 		<div class="directoryarea">
+		<div class="directoryarea">
 			<nav>
 
 			<h3>
@@ -146,7 +154,8 @@
 			</h3>
 			</nav>
 		</div>
- -->
+
 	</div>
 
-{% endblock %}
+</body>
+</html>

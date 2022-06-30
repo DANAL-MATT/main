@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GN, Boilerplate</title>
+
+	<style type="text/css">
+		.containerauthor {
+			display: grid;
+			grid-template-areas:
+				"title"
+				"nav1";
+
+
+			grid-gap: 2px;
+			padding: 15px;
+
+			}
+
+		.directoryarea{grid-area: title; padding: 10px; background-color: #E4AAB4;}
+		.for1{grid-area: nav1; padding: 10px; background-color: #E4AAB4;}
+	</style>
+
+</head>
+<body>
+	<div class="directoryarea">
+		<h2><center>GOTCHA Novelists</center></h2>
+	</div>
+	<div class="for1">
+		<h2><center>
+			<a href="/mainpage">First Page</a>
+			|
+			<a href="/secondpage">Second Page</a>
+			|
+			<a href="/secondpage">Second Page</a>
+		</center></h2>
+	</div>
+	{% block content %}
+
+	{% endblock %}
+</body>
+</html>

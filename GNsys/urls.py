@@ -19,4 +19,5 @@ from GotchaSys import views
 
 urlpatterns = [
     path('', views.MainPage, name='mainpage'),
+    path('secondpage', views.SecondPage),
 ]

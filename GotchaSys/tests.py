@@ -1,6 +1,6 @@
 from django.test import TestCase
 from GotchaSys.views import MainPage
-from GotchaSys.models import Item
+from GotchaSys.models import Feedback
 
 class HomePageTest(TestCase):
     def test_mainpage_as_seen_client(self):
@@ -14,11 +14,11 @@ class HomePageTest(TestCase):
         # self.assertIn('postNumber', resp.content.decode())
         # self.assertIn('postParagraph', resp.content.decode())
 
-        self.assertEqual(Item.objects.count(), 1)
-        newItem = Item.objects.first()
+        self.assertEqual(Feedback.objects.count(), 1)
+        newItem = Feedback.objects.first()
         self.assertEqual(newItem.name, 'Test Name')
         self.assertEqual(newItem.email, 'email@example.com')
-        self.assertEqual(newItem.number, '09123123123')
+        self.assertEqual(newItem.number, 9123123123)
         self.assertEqual(newItem.query, 'Test paragraph here.')
 
         # self.assertTemplateUsed(resp, 'mainpage.html')
@@ -30,23 +30,23 @@ class HomePageTest(TestCase):
 
     def test_only_saves_items_if_necessary(self):
     	self.client.get('/')
-    	self.assertEqual(Item.objects.count(), 0)
+    	self.assertEqual(Feedback.objects.count(), 0)
 
 class ORMTest(TestCase):
     def test_saving_retrieving_list(self):
-        txtItem1 = Item()
+        txtItem1 = Feedback()
         txtItem1.name = 'Test Name1'
         txtItem1.email = 'email@example.com'
         txtItem1.number = '321321'
         txtItem1.query = 'Testing this.'
         txtItem1.save()
-        txtItem2 = Item()
+        txtItem2 = Feedback()
         txtItem2.name = 'Test Name2'
         txtItem2.email = 'emails@example.com'
         txtItem2.number = '123123'
         txtItem2.query = 'Testing here.'
         txtItem2.save()
-        savedItems = Item.objects.all()
+        savedItems = Feedback.objects.all()
         self.assertEqual(savedItems.count(), 2)
         savedItem1 = savedItems[0]
         savedItem2 = savedItems[1]
@@ -60,12 +60,12 @@ class ORMTest(TestCase):
         self.assertEqual(savedItem2.query, 'Testing here.')
 
     def test_saving_retrieving_list(self):
-    	Item.objects.create(name='Test Name',
+    	Feedback.objects.create(name='Test Name',
             email='email@example.com',
             number='123123123',
             query='Testing here.')
 
-    	Item.objects.create(name='Test Name2',
+    	Feedback.objects.create(name='Test Name2',
             email='email2@example.com',
             number='321321321',
             query='Testing this.')

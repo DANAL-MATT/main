@@ -1,5 +1,5 @@
 {% extends 'boilerplates.html' %}
-{% block content %}
+{%block content%}
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,9 +24,7 @@
 
 			}
 
-/*		.directoryarea{grid-area: directory; padding: 10px; background-color: #E4AAB4;}*/
-
-		.authordescription{grid-area: area1; padding: 10px; background-color: #E4AAB4;}
+		.authordescription{grid-area: area1; padding: 10px; background-color: #E4AAB4; width: 50%;}
 		.form{grid-area: area2; padding: 10px; background-color: #E4AAB4;}
 		.iframe{grid-area: area3; padding: 10px; background-color: #E4AAB4;}
 
@@ -64,6 +62,7 @@
 
 		<div class="iframe">
 			<center>
+				<p> This is where the data from the first page goes to.</p>
 				<table id="testTable">
 					{% for item in forstoring %}
 					<tr>
@@ -78,7 +77,7 @@
 		<div class="authordescription">
 
 			<h5><center>
-				Greetings! This is the first page of the Boilerplate project.
+				Greetings! This is the second page of the Boilerplate project.
 
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod leo id leo porta imperdiet at ac tellus. Donec lectus nulla, maximus nec est id, pulvinar gravida magna. Aenean tincidunt scelerisque nisl, vitae sollicitudin est rhoncus ut. Aliquam eget blandit risus. Pellentesque ut metus dui. Vestibulum velit justo, finibus vel viverra nec, blandit id urna. Pellentesque in molestie nibh. Suspendisse consequat sit amet sem nec malesuada. Mauris velit ipsum, sollicitudin vitae sagittis ut, iaculis eget magna.</p>
 
@@ -90,63 +89,6 @@
 
 		</div>
 
-		<div class="form">
-			<form id="formGNPage" method="POST">
-				<center><h4>Contact GotchaNovelist here!</h4></center>
-				<label for = "user_name" class="formwidths">Name: </label>
-				<input id="userAuthor" type = "text" name = "user_name" placeholder="Up to 30 characters!" maxlength="30" size="30" required />
-				<br />
-				<br />
-
-				<label for = "user_email" class="formwidths">E-mail: </label>
-				<input id="emailAuthor" type = "email" name = "user_email" placeholder="E-mail address here!" size="30" required />
-				<br />
-				<br />
-
-				<label for = "user_number" class="formwidths">Phone Number: </label>
-				<br />
-				<input id="numAuthor" type = "tel" name = "user_number" size="30" />
-				<br />
-				<input id="checkAuthor" type="checkbox" name="nophonenumber" value="nophonenumber" onclick="checkNumber('checkAuthor', 'numAuthor')"> Check this if not applicable.
-				<br />
-				<br />
-
-				<label for="dropdown_select" class="formwidths">Query Type: </label>
-				<select id="dropdownAuthor" name="dropdown_select">
-					<option value="Featured/Personal" title="For questions that can be featured in the pages.">Featured/Personal</option>
-					<option value="Business" title="For any inquiries about the pages themselves; these will not be featured.">Business</option>
-					<option value="Others" title="For other inquiries that are not part of the two other criterias.">Others</option>
-				</select>
-				<br />
-				<br />
-
-				<label for = "user_query" class="formwidths">Query: </label>
-				<textarea id="queryAuthor" rows = "10" cols="30" name = "user_query" placeholder="Any questions? Queries to tell me?" required></textarea>
-				<br />
-
-				<center><input type = "submit" id = "confirmAuthor" value="Proceed!" /></center>
-
-				{% csrf_token %}
-
-			</form>
-		</div>
-
-<!-- 		<div class="directoryarea">
-			<nav>
-
-			<h3>
-
-			Directory
-
-			<li title="Click here to head to the homepage!"><a href="index.html">Homepage</a></li>
-			<li title="Go to the Mobages page!"><a href="mobagepage.html">Mobages</a></li>
-			<li title="Head to the Anime page, click here!"><a href="animepage.html">Anime</a></li>
-			<li title="Find out more about the Author of the website!"><a href="author.html">Author</a></li>
-
-			</h3>
-			</nav>
-		</div>
- -->
 	</div>
 
 {% endblock %}

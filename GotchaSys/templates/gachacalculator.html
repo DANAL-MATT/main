@@ -1,0 +1,241 @@
+{% extends 'boilerplates.html' %}
+{% block content %}
+
+<head>
+	<meta charset="utf-8" name="viewport" content= "width=device-width, initial-scale=1.0, user-scalable=no">
+	
+	<title>GN's Gacha Calculator</title>
+
+	<link rel="stylesheet" type="text/css" href="gotchastyle.css">
+
+	<script type="text/javascript">
+		function gachaGen(gen1, gen2) {
+
+			return gen1 * gen2;
+
+		}
+
+		function gachaArk(ark1, ark2) {
+
+			return ark1 * ark2;
+
+		}
+
+		function gachaFgo(fgo1, fgo2) {
+
+			return fgo1 * fgo2;
+
+		}
+
+		function nopercent(n1) {
+
+			let x = Math.round(n1);
+
+			return x;
+		}
+
+		function forShowing(a1, a2) {
+
+			document.getElementById(a1).className = a2;
+		}
+
+		function forRemoving(b1) {
+
+			document.getElementById(b1).className = "removed";
+		}
+			</script>
+
+</head>
+
+<body>
+
+	<div class="containergacha">
+
+		<div class="title">
+			<h2><center>GN's Calculator</center></h2>
+		</div>
+
+		<div id="genshinwindow" class="genshingacha">
+			<center>
+				<h3>Gacha Rate Calculator for <br /> Genshin Impact</h3>
+				<h6>
+					<form id="genshinpulls" oninput="threegen.value = nopercent(gachaGen(parseInt(usergen.value), 0.854)); fourgen.value = nopercent(gachaGen(parseInt(usergen.value), 0.13)); fivegen.value = gachaGen(parseInt(usergen.value), 0.016); genprice.value = nopercent(gachaGen(parseInt(usergen.value), 160)); genshintotal.value = 'Overall, you can possibly get ' + nopercent(threegen.value) + ' 3-star/s, ' + nopercent(fourgen.value) + ' 4-star/s, and ' + nopercent(fivegen.value) + ' 5-star/s pulls from your Wishes, which will cost ' + nopercent(genprice.value) + ' primogems!'">
+
+						<label for="usergen" class="formwidths">Pulls: </label>
+						<input class="numbersize" type="number" name="usergen" id="usergen" size="1">
+						
+						<br />
+						<br />
+
+						<label for="threegen" class="formwidths">Probable Amount of 3-stars: </label>
+						<input class="numbersize" type="number" name="threegen" id="threegen" size="3" readonly>
+
+						<br />
+						<br />
+
+						<label for="fourgen" class="formwidths">Probable Amount of 4-stars: </label>
+						<input class="numbersize" type="number" name="fourgen" id="fourgen" size="3" readonly>
+
+						<br />
+						<br />
+
+						<label for="fivegen" class="formwidths">5-star Guarantee: </label>
+						<input class="guarantees" type="number" name="fivegen" id="fivegen" size="3" readonly>
+
+						<br />
+						<br />
+
+						<label for="genprice" class="formwidths">Primogems Used: </label>
+						<input class="guarantees" type="number" name="genprice" id="genprice" size="3" readonly>
+
+						<br />
+						<br />
+
+						<h3><output id="genshintotal" name="genshintotal"></output></h3>
+					</form>
+
+
+				</h6>
+
+			</center>
+		</div>
+
+		<div id="arknightswindow" class="arknightsgacha">
+			<center>
+				<h3>Gacha Rate Calculator for <br /> Arknights</h3>
+				<h6>
+					<form id="arknightspulls" oninput="threeark.value = nopercent(gachaArk(parseInt(userark.value), 0.40)); fourark.value = nopercent(gachaArk(parseInt(userark.value), 0.50)); fiveark.value = gachaArk(parseInt(userark.value), 0.08); sixark.value = gachaArk(parseInt(userark.value), 0.02); arkprice.value = nopercent(gachaArk(parseInt(userark.value), 600)); arknightstotal.value = 'Overall, you can possibly get ' + nopercent(threeark.value) + ' 3-star Operator/s, ' + nopercent(fourark.value) + ' 4-star Operator/s, ' + nopercent(fiveark.value) + ' 5-star Operator/s, and ' + nopercent(sixark.value) + ' 6-star Operator/s from your Headhunts, which will cost you ' + nopercent(arkprice.value) + ' Orundum!'">
+
+						<label for="userark" class="formwidths">Pulls: </label>
+						<input class="numbersize" type="number" name="userark" id="userark" size="3">
+						
+						<br />
+						<br />
+
+						<label for="threeark" class="formwidths">Probable Amount of 3-stars: </label>
+						<input class="numbersize" type="number" name="threeark" id="threeark" size="3" readonly>
+
+						<br />
+						<br />
+
+						<label for="fourark" class="formwidths">Probable Amount of 4-stars: </label>
+						<input class="numbersize" type="number" name="fourark" id="fourark" size="3" readonly>
+
+						<br />
+						<br />
+
+						<label for="fiveark" class="formwidths">5-star Guarantee: </label>
+						<input class="guarantees" type="number" name="fiveark" id="fiveark" size="3" readonly>
+
+						<br />
+						<br />
+
+						<label for="sixark" class="formwidths">6-star Guarantee: </label>
+						<input class="guarantees" type="number" name="sixark" id="sixark" size="3" readonly>
+
+						<br />
+						<br />
+
+						<label for="arkprice" class="formwidths">Orundum Used: </label>
+						<input class="guarantees" type="number" name="arkprice" id="arkprice" size="3" readonly>
+
+						<br />
+						<br />
+
+						<h3><output id="arknightstotal" name="arknightstotal"></output></h3>
+					</form>
+
+
+				</h6>
+			</center>
+		</div>
+
+		<div id="fgowindow" class="fgogacha">
+			<center>
+				<h3>Gacha Rate Calculator for <br /> Fate/Grand Order</h3>
+				<h6>
+					<form id="fgopulls" oninput="threeweapon.value = nopercent(gachaFgo(parseInt(userfgo.value), 0.40)); threece.value = nopercent(gachaFgo(parseInt(userfgo.value), 0.40)); fourweapon.value = nopercent(gachaFgo(parseInt(userfgo.value), 0.03)); fource.value = nopercent(gachaFgo(parseInt(userfgo.value), 0.12)); fiveweapon.value = gachaFgo(parseInt(userfgo.value), 0.01); fivece.value = gachaFgo(parseInt(userfgo.value), 0.04); fgoprice.value = nopercent(gachaFgo(parseInt(userfgo.value), 3)); fgototal.value = 'Overall, you can possibly get ' + nopercent(threeweapon.value) + ' 3-star Servant/s, ' + nopercent(threece.value) + ' 3-star Craft Essence/s, ' + nopercent(fourweapon.value) + ' 4-star Servant/s, ' + nopercent(fource.value) + ' 4-star Craft Essence/s, ' + nopercent(fiveweapon.value) + ' 5-star Servant/s, and ' + nopercent(fivece.value) + ' 5-star Craft Essence/s from your Summons, which will cost you ' + nopercent(fgoprice.value) + ' Saint Quartz!'">
+
+						<label for="userfgo" class="formwidths">Pulls: </label>
+						<input class="numbersize" type="number" name="userfgo" id="userfgo" size="3">
+						
+						<br />
+						<br />
+
+						<label for="threefgoweap" class="formwidths">3-star Servants: </label>
+						<input class="numbersize" type="number" name="threefgoweap" id="threeweapon" size="3" readonly>
+						<label for="threefgoce" class="formwidths">3-star CEs: </label>
+						<input class="numbersize" type="number" name="threefgoce" id="threece" size="3" readonly>
+
+						<br />
+						<br />
+
+						<label for="fourfgoweap" class="formwidths">4-star Servants: </label>
+						<input class="numbersize" type="number" name="fourfgoweap" id="fourweapon" size="3" readonly>
+						<label for="fourfgoce" class="formwidths">4-star CEs: </label>
+						<input class="numbersize" type="number" name="fourfgoce" id="fource" size="3" readonly>
+
+						<br />
+						<br />
+
+						<label for="fivefgoweap" class="formwidths">5-star Servants: </label>
+						<input class="guarantees" type="number" name="fivefgoweap" id="fiveweapon" size="3" readonly>
+
+						<br />
+						<br />
+
+						<label for="fivefgoce" class="formwidths">5-star CEs: </label>
+						<input class="guarantees" type="number" name="fivefgoce" id="fivece" size="3" readonly>
+
+						<br />
+						<br />
+
+						<label for="fgoprice" class="formwidths">Saint Quartz Used: </label>
+						<input class="guarantees" type="number" name="fgoprice" id="fgoprice" size="3" readonly>
+
+						<br />
+						<br />
+
+						<h3><output id="fgototal" name="fgototal"></output></h3>
+					</form>
+
+
+				</h6>
+			</center>
+		</div>
+
+		<div class="changer">
+			<center>
+				<h3>Window List</h3>
+				<input class="buttonfont" type="button" name="gachashowall" value="Show All Windows" onclick="forShowing('genshinwindow', 'genshingacha'); forShowing('arknightswindow', 'arknightsgacha'); forShowing('fgowindow', 'fgogacha')">
+				<br />
+				<br />
+				<input class="buttonfont" type="button" name="gacharemove" value="Remove All Windows" onclick="forRemoving('genshinwindow'); forRemoving('arknightswindow'); forRemoving('fgowindow')">
+				<br />
+				<br />
+				<input class="buttonfont" type="button" name="genshinshow" value="Genshin Impact" onclick="forShowing('genshinwindow', 'genshingacha'); forShowing('genremoved', 'genshown')">
+				<input class="buttonfont genremoved" type="button" name="genshinremove" value="Remove" onclick="forRemoving('genshinwindow')">
+				<br />
+				<br />
+				<input class="buttonfont" type="button" name="arknightsshow" value="Arknights" onclick="forShowing('arknightswindow', 'arknightsgacha')">
+				<input class="buttonfont arkremoved" type="button" name="arkremove" value="Remove" onclick="forRemoving('arknightswindow')">
+				<br />
+				<br />
+				<input class="buttonfont" type="button" name="fgoshow" value="Fate/Grand Order" onclick="forShowing('fgowindow', 'fgogacha')">
+				<input class="buttonfont fgoremoved" type="button" name="fgoremove" value="Remove" onclick="forRemoving('fgowindow')">
+			</center>
+		</div>
+
+		<div class="copyrightgacha">
+			<h6><center>This section contains details about Genshin Impact, Arknights, and Fate/Grand Order. I own nothing but my own code and text. <br /> <em>No copyright infringement intended.</em> All rights reserved to the copyright owners.</center></h6>
+		</div>
+
+		<div class="backtombpage">
+			<h3><center>
+				<a href="mobagepage.html">Back to Mobage Page</a>
+			</center></h3>
+		</div>
+
+	</div>
+
+{% endblock %}

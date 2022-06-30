@@ -70,7 +70,7 @@ class PageTest(LiveServerTestCase):
         btnConfirm.click()
         table = self.browser.find_element_by_id('testTable')
         row_data = table.find_elements_by_tag_name('tr')
-        self.assertIn('1: TestName1, sample1@mailingsite.com, 0913645127364, Lorem ipsum dolor sit amet.', [row.text for row in row_data])
+        self.assertIn('1: TestName1, sample1@mailingsite.com, 913645127364, Lorem ipsum dolor sit amet.', [row.text for row in row_data])
 
 # if __name__=='__main__':
 #     unittest.main(warnings='ignore')
