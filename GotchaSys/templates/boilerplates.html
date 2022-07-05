@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>GN, Boilerplate</title>
+	<meta charset="utf-8" name="viewport" content= "width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>GotchaNovelist</title>
 
 	<style type="text/css">
-		.containerauthor {
+		body{background-color:#000000; font-family: Ubuntu;}
+
+		a:visited{color: #D67F8E;}
+		
+		.containerboiler {
 			display: grid;
 			grid-template-areas:
 				"title"
@@ -20,20 +23,83 @@
 
 		.directoryarea{grid-area: title; padding: 10px; background-color: #E4AAB4;}
 		.for1{grid-area: nav1; padding: 10px; background-color: #E4AAB4;}
+
+		.containerauthor {
+			display: grid;
+			grid-template-areas:
+				"area2 area1"
+				"area2 area1";
+
+
+			grid-gap: 2px;
+			padding: 15px;
+
+			}
+
+/*		.directoryarea{grid-area: directory; padding: 10px; background-color: #E4AAB4;}*/
+
+		.authordescription{grid-area: area1; padding: 10px; background-color: #E4AAB4;}
+		.form{grid-area: area2; padding: 10px; background-color: #E4AAB4;}
+/*		.iframe{grid-area: area3; padding: 10px; background-color: #E4AAB4;}*/
+
+		.formwidths{display: inline-block; min-width: 75px;}
+
+		.containerp2 {
+			display: grid;
+			grid-template-areas:
+				"area1 area3"
+				"area1 area3";
+
+
+			grid-gap: 2px;
+			padding: 15px;
+
+			}
+
+		.p2desc{grid-area: area1; padding: 10px; background-color: #E4AAB4;}
+		.p2results{grid-area: area3; padding: 10px; background-color: #E4AAB4;}
+
+		.formwidths{display: inline-block; min-width: 75px;}
+
 	</style>
+
+	<script type="text/javascript">
+		// function formAuthor(sub, name, email, number, dropdown, query) {
+		// 	var emailMessage = "mailto:mdfordomain@gmail.com" + "?subject=" + encodeURI(sub) + "&body=" + "Name: " + encodeURI(name) + "%0D%0AEmail: " + encodeURI(email) + "%0D%0ANumber: " +
+		// 	 encodeURI(number) + "%0D%0AQuery Type: " + encodeURI(dropdown) + "%0D%0AQuery:%0D%0A" + encodeURI(query);
+			 
+		// 	window.location = emailMessage;
+
+		// 	if (name == "") {
+		// 		return false
+		// 	}
+			
+		// }
+
+		function checkNumber(chkbox, txtbox) {
+
+			if (document.getElementById(chkbox).checked == true) {
+				document.getElementById(txtbox).disabled = 'true';
+			}
+
+			else {
+				document.getElementById(txtbox).removeAttribute("disabled");
+			}
+		}
+	</script>
 
 </head>
 <body>
 	<div class="directoryarea">
-		<h2><center>GOTCHA Novelists</center></h2>
+		<h2><center>GOTCHA Novelist</center></h2>
 	</div>
 	<div class="for1">
 		<h2><center>
-			<a href="/mainpage">First Page</a>
+			<a href="/">First Page</a>
 			|
 			<a href="/secondpage">Second Page</a>
 			|
-			<a href="/secondpage">Second Page</a>
+			<a href="/calculator">Calculator Page</a>
 		</center></h2>
 	</div>
 	{% block content %}

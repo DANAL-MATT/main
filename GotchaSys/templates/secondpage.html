@@ -1,66 +1,9 @@
 {% extends 'boilerplates.html' %}
 {%block content%}
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" name="viewport" content= "width=device-width, initial-scale=1.0, user-scalable=no">
-	
-	<title>The Author</title>
 
-	<style type="text/css">
-		body{background-color:#aae4da; font-family: Ubuntu;}
+	<div class="containerp2">
 
-		a:visited{color: #D67F8E;}
-
-		.containerauthor {
-			display: grid;
-			grid-template-areas:
-				"area2 area1 area3"
-				"area2 area1 area3";
-
-
-			grid-gap: 2px;
-			padding: 15px;
-
-			}
-
-		.authordescription{grid-area: area1; padding: 10px; background-color: #E4AAB4; width: 50%;}
-		.form{grid-area: area2; padding: 10px; background-color: #E4AAB4;}
-		.iframe{grid-area: area3; padding: 10px; background-color: #E4AAB4;}
-
-		.formwidths{display: inline-block; min-width: 75px;}
-
-	</style>
-
-	<script type="text/javascript">
-		// function formAuthor(sub, name, email, number, dropdown, query) {
-		// 	var emailMessage = "mailto:mdfordomain@gmail.com" + "?subject=" + encodeURI(sub) + "&body=" + "Name: " + encodeURI(name) + "%0D%0AEmail: " + encodeURI(email) + "%0D%0ANumber: " +
-		// 	 encodeURI(number) + "%0D%0AQuery Type: " + encodeURI(dropdown) + "%0D%0AQuery:%0D%0A" + encodeURI(query);
-			 
-		// 	window.location = emailMessage;
-
-		// 	if (name == "") {
-		// 		return false
-		// 	}
-			
-		// }
-
-		function checkNumber(chkbox, txtbox) {
-
-			if (document.getElementById(chkbox).checked == true) {
-				document.getElementById(txtbox).disabled = 'true';
-			}
-
-			else {
-				document.getElementById(txtbox).removeAttribute("disabled");
-			}
-		}
-	</script>
-
-</head>
-	<div class="containerauthor">
-
-		<div class="iframe">
+		<div class="p2results">
 			<center>
 				<p> This is where the data from the first page goes to.</p>
 				<table id="testTable">
@@ -74,7 +17,7 @@
 			</center>
 		</div>
 
-		<div class="authordescription">
+		<div class="p2desc">
 
 			<h5><center>
 				Greetings! This is the second page of the Boilerplate project.

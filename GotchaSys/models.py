@@ -21,10 +21,10 @@ class Feedback(models.Model):
 	#For Relationships#
 
 	User_ID = models.BigAutoField(primary_key=True)
-	User_Game = models.ManyToManyField(Games)
+	# User_Game = models.ManyToManyField(Games)
 
 	def __str__(self):
-		return self.User_ID
+		return self.name
 
 class Gacha(models.Model):
 	Banner_Type = models.CharField(max_length=20)

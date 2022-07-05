@@ -25,4 +25,7 @@ def SecondPage(request):
     samplename = Feedback.objects.all()
     return render(request, 'secondpage.html', {'forstoring': samplename})
 
+def CalPage(request):
+    return render(request, 'gachacalculator.html')
+
 # Create your views here.

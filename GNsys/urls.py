@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import re_path as url
 from GotchaSys import views
 
 urlpatterns = [
     path('', views.MainPage, name='mainpage'),
     path('secondpage', views.SecondPage),
+    path('calculator', views.CalPage),
+    url('admin/', admin.site.urls),
 ]

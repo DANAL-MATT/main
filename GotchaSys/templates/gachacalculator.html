@@ -8,6 +8,35 @@
 
 	<link rel="stylesheet" type="text/css" href="gotchastyle.css">
 
+	<style type="text/css">
+
+		.containergacha {
+			display: grid;
+			grid-template-areas:
+				"title title title title"
+				"area5 area1 area2 area3"
+				"area5 area1 area2 area3"
+				"area4 area4 area4 area4";
+
+					grid-gap: 2px;
+					padding: 10px;
+
+					}
+
+		.title{grid-area: title; padding: 2px; background-color: #E4AAB4; border-radius: 25px;}
+		.directoryarea{grid-area: directory; padding: 10px; background-color: #E4AAB4;}
+		.genshingacha{grid-area: area1; padding: 10px; background-image: url(images/genshinblur.jpg); background-position: center; border-radius: 25px; color: #000000;}
+		.arknightsgacha{grid-area: area2; padding: 10px; background-image: url(images/arknightsblur.png); background-position: center; border-radius: 25px; color: #000000;}
+		.fgogacha{grid-area: area3; padding: 10px; background-image: url(images/fgoblur.png); background-position: center; border-radius: 25px; color: #000000;}
+		.copyrightgacha{grid-area: area4; padding: 2px; background-color: #00000000; color: #000000;}
+		.changer{grid-area: area5; padding: 10px; background-color: #999999; border-radius: 25px;}
+/*		.backtombpage{grid-area: area6; padding: 10px; background-color: #E4AAB4; border-radius: 25px; height: 65px;}*/
+		.buttonfont{font-family: Century Gothic;}
+		.removed{display: none;}
+		.numbersize{width: 50px}
+		.guarantees{width: 75px}
+	</style>
+
 	<script type="text/javascript">
 		function gachaGen(gen1, gen2) {
 
@@ -230,11 +259,11 @@
 			<h6><center>This section contains details about Genshin Impact, Arknights, and Fate/Grand Order. I own nothing but my own code and text. <br /> <em>No copyright infringement intended.</em> All rights reserved to the copyright owners.</center></h6>
 		</div>
 
-		<div class="backtombpage">
+<!-- 		<div class="backtombpage">
 			<h3><center>
 				<a href="mobagepage.html">Back to Mobage Page</a>
 			</center></h3>
-		</div>
+		</div> -->
 
 	</div>
 
