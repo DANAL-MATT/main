@@ -3,37 +3,25 @@
 
 	<div class="containerauthor">
 
-		<!-- <div class="iframe">
-			<center>
-				<table id="testTable">
-					{% for item in forstoring %}
-					<tr>
-						<td>User Information: {{postName}}, {{postEmail}}, {{postNumber}}, {{postQuery}}</td>
-						<td>{{forloop.counter}}: {{item.name}}, {{item.email}}, {{item.number}}, {{item.query}}
-					</tr>
-					{% endfor %}
-				</table>
-			</center>
-		</div>
- -->
 		<div class="authordescription">
 
-			<h3><center>Games List</center></h3>
+			<h2><center>Games List</center></h2>
 
 			<h5><center>
-				Gamelist
-				<br />
 
-				{% for gamelist in gamewareh %}
+				{% for game in specificgame %}
 
-				<a href="{% url 'gamepage' gamelist.Game_ID %}">{{gamelist.Game_Name}}</a>
-				<br />
+				<h1>{{game.Game_Name}}</h1>
 
-				{% endfor %}
+				<h2>Genre: {{game.Genre}}</h2>
 
-				<p> Curabitur euismod, ex non sagittis tristique, orci dui blandit sem, sed tristique mauris lectus a risus. Morbi euismod magna mauris. Donec vestibulum hendrerit neque at tristique. Curabitur rutrum nunc non tincidunt pretium. Mauris feugiat volutpat tortor ac dapibus. In mollis dignissim suscipit. In eleifend, nulla vitae egestas vestibulum, nulla tortor placerat leo, eu feugiat est neque in turpis. Fusce sed faucibus odio, vitae bibendum ex. Nam quis turpis scelerisque, hendrerit turpis id, sollicitudin sem. Phasellus egestas arcu ligula, at aliquam lectus efficitur at. Quisque dolor tortor, mattis nec semper nec, aliquam ultricies leo. Pellentesque augue nibh, fringilla finibus facilisis at, porta non lectus. Aenean scelerisque non mi eu tincidunt. Etiam ultricies augue erat, a dictum sapien pulvinar quis. </p>
+				<h2>Release Date: {{game.Release_Date}}</h2>
+
+				<h2>Description: {{game.Game_Description}}</h2>
 
 				<p><a href="/">Click here to go to the main page.</a></p>
+
+				{% endfor %}
 
 			</center></h5>
 

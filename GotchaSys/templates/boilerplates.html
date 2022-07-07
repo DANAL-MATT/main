@@ -42,8 +42,6 @@
 		.form{grid-area: area2; padding: 10px; background-color: #E4AAB4;}
 /*		.iframe{grid-area: area3; padding: 10px; background-color: #E4AAB4;}*/
 
-		.formwidths{display: inline-block; min-width: 75px;}
-
 		.containerp2 {
 			display: grid;
 			grid-template-areas:
@@ -80,6 +78,7 @@
 
 			if (document.getElementById(chkbox).checked == true) {
 				document.getElementById(txtbox).disabled = 'true';
+				document.getElementById(txtbox).setAttribute("value", "None"); // Don't forget to change the entry to string!
 			}
 
 			else {
@@ -100,6 +99,8 @@
 			<a href="/secondpage">Second Page</a>
 			|
 			<a href="/calculator">Calculator Page</a>
+			|
+			<a href="/games">Games Page</a>
 		</center></h2>
 	</div>
 	{% block content %}

@@ -22,5 +22,7 @@ urlpatterns = [
     path('', views.MainPage, name='mainpage'),
     path('secondpage', views.SecondPage),
     path('calculator', views.CalPage),
+    path('games', views.GamesPage),
+    url(r'^gamepage/(\d+)$', views.IndGame, name='gamepage'),
     url('admin/', admin.site.urls),
 ]

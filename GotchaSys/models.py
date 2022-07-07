@@ -1,16 +1,17 @@
 from django.db import models
 
 class Games(models.Model):
+	Game_Name = models.CharField(default="", max_length=40)
 	Genre = models.CharField(max_length=30)
 	Release_Date = models.DateField()
 	Game_Description = models.TextField(default="")
 
 	#For Relationships#
 
-	Game_ID = models.CharField(max_length=40, primary_key=True)
+	Game_ID = models.BigAutoField(primary_key=True)
 
 	def __str__(self):
-		return self.Game_ID
+		return self.Game_Name
 
 class Feedback(models.Model):
 	name = models.CharField(max_length=40)
