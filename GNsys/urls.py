@@ -24,5 +24,10 @@ urlpatterns = [
     path('calculator', views.CalPage),
     path('games', views.GamesPage),
     url(r'^gamepage/(\d+)$', views.IndGame, name='gamepage'),
+    url(r'^gamepage/(\d+)/edit$', views.UpGame, name='updategame'),
+    url(r'^gamepage/(\d+)/delete$', views.DelGame, name='deletegame'),
+    url(r'^gamepage/(\d+)/storylines$', views.StoryPage, name='storylines'),
+    url(r'^gamepage/(\d+)/storylines/delete$', views.DelStory, name='storydelete'),
+    url(r'^gamepage/(\d+)/characters$', views.CharsPage, name='characters'),
     url('admin/', admin.site.urls),
 ]

@@ -43,19 +43,21 @@ class Gacha(models.Model):
 
 class Storylines(models.Model):
 
+	Chapter_Name = models.CharField(max_length=50, default="")
 	Chapter_Description = models.TextField(default="")
 	Chapter_Setting = models.TextField(default="")
 
 	#For Relationships#
 
-	Chapter_ID = models.CharField(max_length=70, primary_key=True)
+	Chapter_ID = models.BigAutoField(primary_key=True)
 	Story_GameID = models.ForeignKey(Games, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.Chapter_ID
+		return self.Chapter_Name
 
 class Characters(models.Model):
 	
+	Character_Name = models.CharField(max_length=35, default="")
 	Character_Rarity = models.IntegerField()
 	Char_Description = models.TextField(default="")
 
@@ -63,8 +65,8 @@ class Characters(models.Model):
 
 	Character_ID = models.CharField(max_length=50, primary_key=True)
 	Char_GameID = models.ForeignKey(Games, on_delete=models.CASCADE)
-	Char_GachaID = models.ForeignKey(Gacha, on_delete=models.CASCADE)
-	Char_StoryID = models.ForeignKey(Storylines, on_delete=models.CASCADE)
+	# Char_GachaID = models.ForeignKey(Gacha, on_delete=models.CASCADE)
+	# Char_StoryID = models.ForeignKey(Storylines, on_delete=models.CASCADE)
 
 	def __str__(self):
 		return self.Character_ID

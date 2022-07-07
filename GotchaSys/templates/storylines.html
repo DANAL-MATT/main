@@ -1,0 +1,32 @@
+{% extends 'boilerplates.html' %}
+{% block content %}
+
+	<div class="containerstory">
+
+		<div class="storydesc">
+
+			<center>
+
+				{% for game in stories %}
+
+				<h1>Chapter: {{game.Chapter_Name}}</h1>
+
+				<h2>Chapter Description: {{game.Chapter_Description}}</h2>
+
+				<h2>Chapter Setting: {{game.Chapter_Setting}}</h2>
+
+				<h2>Involved Characters: </h2>
+
+				<a href="{% url 'storydelete' game.Chapter_ID %}">DELETE</a>
+
+				{% endfor %}
+
+			</center>
+
+		</div>
+
+		<div></div>
+
+	</div>
+
+{% endblock %}

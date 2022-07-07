@@ -5,9 +5,9 @@
 	<title>GotchaNovelist</title>
 
 	<style type="text/css">
-		body{background-color:#000000; font-family: Ubuntu;}
+		body{background-color:#7CC6FE; font-family: Ubuntu;}
 
-		a:visited{color: #D67F8E;}
+		a:visited{color: #8789C0;}
 		
 		.containerboiler {
 			display: grid;
@@ -17,12 +17,12 @@
 
 
 			grid-gap: 2px;
-			padding: 15px;
+			padding: 5px;
 
 			}
 
-		.directoryarea{grid-area: title; padding: 10px; background-color: #E4AAB4;}
-		.for1{grid-area: nav1; padding: 10px; background-color: #E4AAB4;}
+		.directoryarea{grid-area: title; padding: 10px; background-color: #F4FAFF;}
+		.for1{grid-area: nav1; padding: 2px; background-color: #F4FAFF;}
 
 		.containerauthor {
 			display: grid;
@@ -36,11 +36,11 @@
 
 			}
 
-/*		.directoryarea{grid-area: directory; padding: 10px; background-color: #E4AAB4;}*/
+/*		.directoryarea{grid-area: directory; padding: 10px; background-color: #F4FAFF;}*/
 
-		.authordescription{grid-area: area1; padding: 10px; background-color: #E4AAB4;}
-		.form{grid-area: area2; padding: 10px; background-color: #E4AAB4;}
-/*		.iframe{grid-area: area3; padding: 10px; background-color: #E4AAB4;}*/
+		.authordescription{grid-area: area1; padding: 10px; background-color: #F4FAFF;}
+		.form{grid-area: area2; padding: 10px; background-color: #F4FAFF;}
+/*		.iframe{grid-area: area3; padding: 10px; background-color: #F4FAFF;}*/
 
 		.containerp2 {
 			display: grid;
@@ -54,10 +54,81 @@
 
 			}
 
-		.p2desc{grid-area: area1; padding: 10px; background-color: #E4AAB4;}
-		.p2results{grid-area: area3; padding: 10px; background-color: #E4AAB4;}
+		.p2desc{grid-area: area1; padding: 10px; background-color: #F4FAFF;}
+		.p2results{grid-area: area3; padding: 10px; background-color: #F4FAFF;}
+
+		.containergame {
+			display: grid;
+			grid-template-areas:
+				"area1 area2 area4"
+				"area1 area3 area5";
+
+
+			grid-gap: 2px;
+			padding: 15px;
+
+			}
+
+		.gamedesc{grid-area: area1; padding: 10px; background-color: #F4FAFF;}
+		.gamestory{grid-area: area2; padding: 10px; background-color: #F4FAFF;}
+		.storycontent{grid-area: area3; padding: 10px; background-color: #F4FAFF;}
+		.charactercreate{grid-area: area4; padding: 10px; background-color: #F4FAFF;}
+		.charactercontent{grid-area: area5; padding: 10px; background-color: #F4FAFF;}
+
+		.containerstory {
+			display: grid;
+			grid-template-areas:
+				"area1 area3"
+				"area1 area3";
+
+
+			grid-gap: 2px;
+			padding: 15px;
+
+			}
+
+		.storydesc{grid-area: area1; padding: 10px; background-color: #F4FAFF;}
+		.otherstory{grid-area: area3; padding: 10px; background-color: #F4FAFF;}
+
 
 		.formwidths{display: inline-block; min-width: 75px;}
+
+		.overlaygame{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			display: none;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 1;
+			cursor: pointer;
+			background-color: #00000050;
+		}
+
+		.overlaystory{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			display: none;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 2;
+			cursor: pointer;
+			background-color: #00000050;
+		}
+
+		.formover{
+			border: solid;
+			position: absolute;
+			top: 25%;
+			left: 35%;
+			background-color: #ffffff;
+			padding: 10px;
+		}
 
 	</style>
 
@@ -84,6 +155,15 @@
 			else {
 				document.getElementById(txtbox).removeAttribute("disabled");
 			}
+		}
+		function overlayOn(overlay) {
+
+			document.getElementById(overlay).style.display = 'block';
+		}
+
+		function overlayOff(overlay) {
+
+			document.getElementById(overlay).style.display = 'none';
 		}
 	</script>
 

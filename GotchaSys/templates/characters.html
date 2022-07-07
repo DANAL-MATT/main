@@ -71,7 +71,7 @@
 			{% endfor %}
 				<center><h4>Create a new entry for the game's story here.</h4></center>
 				<label for = "story_name" class="formwidths">Chapter Name: </label>
-				<input id="story_formname" type = "text" name = "story_name" placeholder="Up to 50 characters!" maxlength="50" size="25" required />
+				<input id="story_formname" type = "text" name = "story_name" placeholder="Up to 40 characters!" maxlength="40" size="25" required />
 				<br />
 				<br />
 
@@ -82,48 +82,7 @@
 
 				<label for = "story_setting" class="formwidths">Story Setting: </label>
 				<br />
-				<textarea id="story_formsetting" rows = "10" cols="50" name = "story_setting" placeholder="Input the place or setting where the chapter took place." required></textarea>
-				<br />
-
-				<center><input type = "submit" id = "confirmGame" value="Create!" /></center>
-
-				{% csrf_token %}
-
-			</form>
-			</center>
-		</div>
-
-		<div class="storycontent">
-			<center>
-				{% for game in specificgame %}
-				<a href="{% url 'storylines' game.Game_ID %}">Click here to go to the Storylines section.</a>
-				{% endfor %}
-			</center>
-		</div>
-
-		<div class="charactercreate">
-			<center>
-			{% for game in specificgame %}
-			<form id="formStory" method="POST" action="{% url 'characters' game.Game_ID %}">
-			{% endfor %}
-				<center><h4>Create a new character entry here.</h4></center>
-				<label for = "char_name" class="formwidths">Character Name: </label>
-				<input id="char_formname" type = "text" name = "char_name" placeholder="Up to 35 characters!" maxlength="35" size="25" required />
-				<br />
-				<br />
-
-				<label for = "char_rarity" class="formwidths"> Character Rarity: </label>
-				<select name="char_rarity" id="char_formrarity">
-					<option value="UR">UR</option>
-					<option value="SSR">SSR</option>
-					<option value="SR">SR</option>
-				</select>
-
-				<br />
-				<br />
-				<label for = "char_desc" class="formwidths">Character Description: </label>
-				<br />
-				<textarea id="char_formdesc" rows = "10" cols="50" name = "char_desc" placeholder="Input the synopsis or any needed description here." required></textarea>
+				<textarea id="story_formsetting" rows = "10" cols="50" name = "story_setting" placeholder="Input the synopsis or any needed description here." required></textarea>
 				<br />
 
 				<center><input type = "submit" id = "confirmGame" value="Create!" /></center>
