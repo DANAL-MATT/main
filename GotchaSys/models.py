@@ -28,6 +28,7 @@ class Feedback(models.Model):
 		return self.name
 
 class Gacha(models.Model):
+	Banner_Name = models.CharField(max_length=80, default="")
 	Banner_Type = models.CharField(max_length=20)
 	Banner_Description = models.TextField(default="")
 	Banner_ReleaseDate = models.DateField()
@@ -35,11 +36,11 @@ class Gacha(models.Model):
 
 	#For Relationships#
 
-	Banner_ID = models.CharField(max_length=80, primary_key=True)
+	Banner_ID = models.BigAutoField(primary_key=True)
 	Gacha_GameID = models.ForeignKey(Games, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.Banner_ID
+		return self.Banner_Name
 
 class Storylines(models.Model):
 
@@ -58,18 +59,18 @@ class Storylines(models.Model):
 class Characters(models.Model):
 	
 	Character_Name = models.CharField(max_length=35, default="")
-	Character_Rarity = models.IntegerField()
+	Character_Rarity = models.CharField(max_length=5)
 	Char_Description = models.TextField(default="")
 
 	#For Relationships#
 
-	Character_ID = models.CharField(max_length=50, primary_key=True)
+	Character_ID = models.BigAutoField(primary_key=True)
 	Char_GameID = models.ForeignKey(Games, on_delete=models.CASCADE)
 	# Char_GachaID = models.ForeignKey(Gacha, on_delete=models.CASCADE)
 	# Char_StoryID = models.ForeignKey(Storylines, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.Character_ID
+		return self.Character_Name
 
 class CharType(models.Model):
 	  Char_Range = models.CharField(max_length=25)

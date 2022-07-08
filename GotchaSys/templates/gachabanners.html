@@ -1,0 +1,54 @@
+{% extends 'boilerplates.html' %}
+{% block content %}
+
+	<div class="tablepage">
+
+		<div>
+
+			<h3><center>
+				<h2>Overall Banner List</h2>
+				<table border="1">
+					
+					<tr>
+						<th>Banner Name</th>
+						<th>From</th>
+						<th>Banner Type</th>
+						<th>Banner Description</th>
+						<th>Release Date</th>
+						<th>End Date</th>
+
+					</tr>
+
+					{% for gacha in gachas %}
+
+					<tr>
+
+					<td>{{gacha.Banner_Name}}</td>
+
+					<td>{{gacha.Gacha_GameID}}</td>
+
+					<td>{{gacha.Banner_Type}}</td>
+
+					<td>{{gacha.Banner_Description}}</td>
+
+					<td>{{gacha.Banner_ReleaseDate}}</td>
+
+					<td>{{gacha.Banner_EndDate}}</td>
+
+					<td><a href="{% url 'gachadelete' gacha.Banner_ID %}">DELETE</a></td>
+					<br />
+
+					</tr>
+
+					{% endfor %}
+
+				</table>
+
+			<h2><a href="{% url 'games' %}">BACK</a></h2>
+			</center></h3>
+
+		</div>
+
+	</div>
+
+{% endblock %}

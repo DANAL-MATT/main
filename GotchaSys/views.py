@@ -77,14 +77,42 @@ def DelStory(request, storyID):
     return redirect('/games')
     return render(request, 'storylines.html', {'storydelete':storydelete})
 
-def CharsPage(request):
+def CharsPage(request, gameID):
     if request.method == 'POST':
         Characters.objects.create(Character_Name=request.POST['char_name'],
             Character_Rarity=request.POST['char_rarity'],
             Char_Description=request.POST['char_desc'],
             Char_GameID=Games.objects.get(Game_ID=gameID))
-        return redirect('/games')
-    gamestorage = Games.objects.all()
-    return render(request, 'gamespage.html', {'gamewareh': gamestorage})
+        # return redirect('/games')
+    characterstorage = Characters.objects.all()
+    return render(request, 'characters.html', {'charstore': characterstorage})
+
+def IndChar(request, charID):
+    charselect = Characters.objects.filter(Character_ID=charID)
+    return render(request, 'characters.html', {'charselect': charselect})
+
+def DelChar(request, charID):
+    chardelete = Characters.objects.get(Character_ID=charID)
+    chardelete.delete()
+    return redirect('/games')
+    return render(request, 'characters.html', {'chardelete':chardelete})
+
+def GachaPage(request, gameID):
+    if request.method == 'POST':
+        Gacha.objects.create(Banner_Name=request.POST['banner_name'],
+            Banner_Type=request.POST['banner_type'],
+            Banner_Description=request.POST['gacha_desc'],
+            Banner_ReleaseDate=request.POST['gacha_reldate'],
+            Banner_EndDate=request.POST['gacha_enddate'],
+            Gacha_GameID=Games.objects.get(Game_ID=gameID))
+        # return redirect('/games')
+    gachastorage = Gacha.objects.all()
+    return render(request, 'gachabanners.html', {'gachas': gachastorage})
+
+def DelGacha(request, gachaID):
+    gachadelete = Gacha.objects.get(Banner_ID=gachaID)
+    gachadelete.delete()
+    return redirect('/games')
+    return render(request, 'gachabanners.html', {'gachadelete':gachadelete})
 
 # Create your views here.

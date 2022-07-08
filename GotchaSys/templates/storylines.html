@@ -1,31 +1,48 @@
 {% extends 'boilerplates.html' %}
 {% block content %}
 
-	<div class="containerstory">
+	<div class="tablepage">
 
-		<div class="storydesc">
+		<div>
 
 			<center>
+				<h2>Overall Story Chapter List</h2>
+				<table border="1">
+					
+					<tr>
+						<th>Chapter Title</th>
+						<th>Origin</th>
+						<th>Chapter Description</th>
+						<th>Chapter Setting</th>
 
-				{% for game in stories %}
+					</tr>
 
-				<h1>Chapter: {{game.Chapter_Name}}</h1>
+					{% for game in stories %}
 
-				<h2>Chapter Description: {{game.Chapter_Description}}</h2>
+					<tr>
 
-				<h2>Chapter Setting: {{game.Chapter_Setting}}</h2>
+					<td>{{game.Chapter_Name}}</td>
 
-				<h2>Involved Characters: </h2>
+					<td>{{game.Story_GameID}}</td>
 
-				<a href="{% url 'storydelete' game.Chapter_ID %}">DELETE</a>
+					<td>{{game.Chapter_Description}}</td>
 
-				{% endfor %}
+					<td>{{game.Chapter_Setting}}</td>
+
+					<td><a href="{% url 'storydelete' game.Chapter_ID %}">DELETE</a></td>
+					<br />
+
+					</tr>
+
+					{% endfor %}
+
+				</table>
+
+			<h2><a href="{% url 'games' %}">BACK</a></h2>
 
 			</center>
 
 		</div>
-
-		<div></div>
 
 	</div>
 

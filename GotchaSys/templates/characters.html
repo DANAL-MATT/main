@@ -1,113 +1,47 @@
 {% extends 'boilerplates.html' %}
 {% block content %}
 
-	<div class="containergame">
+	<div class="tablepage">
 
-		<div class="gamedesc">
+		<div>
 
-			<h5><center>
+			<h3><center>
+				<h2>Character List</h2>
+				<table border="1">
+					
+					<tr>
+						<th>Name</th>
+						<th>Origin</th>
+						<th>Rarity</th>
+						<th>Description</th>
 
-				{% for game in specificgame %}
+					</tr>
 
-				<h1>{{game.Game_Name}}</h1>
+					{% for character in charstore %}
 
-				<h2>Genre: {{game.Genre}}</h2>
+					<tr>
 
-				<h2>Release Date: {{game.Release_Date}}</h2>
+					<td>{{character.Character_Name}}</td>
 
-				<h3>Description: {{game.Game_Description}}</h3>
+					<td>{{character.Char_GameID}}</td>
 
-				<a href="{% url 'deletegame' game.Game_ID %}">DELETE</a>
+					<td>{{character.Character_Rarity}}</td>
 
-				<button onclick="overlayOn('foroverlay')">Edit Game Information</button>
+					<td>{{character.Char_Description}}</td>
 
-				{% endfor %}
+					<td><a href="{% url 'chardelete' character.Character_ID %}">DELETE</a></td>
+					<br />
 
-			</center></h5>
+					</tr>
+
+					{% endfor %}
+
+				</table>
+
+			<h2><a href="{% url 'games' %}">BACK</a></h2>
+			</center></h3>
 
 		</div>
-
-		<div id="foroverlay" class="overlaygame">
-
-			<div class="formover">
-				{% for game in specificgame %}
-				<form id="formIndGamePage" method="POST" action="{% url 'updategame' game.Game_ID %}">
-				{% endfor %}
-					<center><h4>Edit the game's entries here.</h4></center>
-					<label for = "game_name" class="formwidths">Game Name: </label>
-					<input id="game_formedname" type = "text" name = "game_editname" placeholder="Up to 40 characters!" maxlength="40" size="25" />
-					<br />
-					<br />
-
-					<label for = "game_reldate" class="formwidths">Release Date: </label>
-					<input id="game_formedreldate" type = "date" name = "game_editreldate" />
-					<br />
-					<br />
-
-					<label for = "game_genre" class="formwidths">Genre: </label>
-					<input id="game_formedgenre" type = "text" name = "game_editgenre" placeholder="ex. Action, Adventure..." maxlength="40" size="15" />
-					<br />
-					<br />
-
-					<label for = "game_description" class="formwidths">Game Description: </label>
-					<br />
-					<textarea id="game_formeddesc" rows = "10" cols="50" name = "game_editdescription" placeholder="Input the synopsis or any needed description here."></textarea>
-					<br />
-
-					<center><input type = "submit" id = "confirmGame" value="Edit!" /></center>
-
-
-					{% csrf_token %}
-
-				</form>
-				<button onclick="overlayOff('foroverlay')">Cancel</button>
-			</div>
-		</div>
-
-		<div class="gamestory">
-			<center>
-			{% for game in specificgame %}
-			<form id="formStory" method="POST" action="{% url 'storylines' game.Game_ID %}">
-			{% endfor %}
-				<center><h4>Create a new entry for the game's story here.</h4></center>
-				<label for = "story_name" class="formwidths">Chapter Name: </label>
-				<input id="story_formname" type = "text" name = "story_name" placeholder="Up to 40 characters!" maxlength="40" size="25" required />
-				<br />
-				<br />
-
-				<label for = "story_desc" class="formwidths">Story Description: </label>
-				<br />
-				<textarea id="story_formdesc" rows = "10" cols="50" name = "story_desc" placeholder="Input the synopsis or any needed description here." required></textarea>
-				<br />
-
-				<label for = "story_setting" class="formwidths">Story Setting: </label>
-				<br />
-				<textarea id="story_formsetting" rows = "10" cols="50" name = "story_setting" placeholder="Input the synopsis or any needed description here." required></textarea>
-				<br />
-
-				<center><input type = "submit" id = "confirmGame" value="Create!" /></center>
-
-				{% csrf_token %}
-
-			</form>
-			</center>
-		</div>
-
-<!-- 		<div>
-			<nav>
-
-			<h3>
-
-			Directory
-
-			<li title="Click here to head to the homepage!"><a href="index.html">Homepage</a></li>
-			<li title="Go to the Mobages page!"><a href="mobagepage.html">Mobages</a></li>
-			<li title="Head to the Anime page, click here!"><a href="animepage.html">Anime</a></li>
-			<li title="Find out more about the Author of the website!"><a href="author.html">Author</a></li>
-
-			</h3>
-			</nav>
-		</div> -->
 
 	</div>
 

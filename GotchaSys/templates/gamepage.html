@@ -40,7 +40,7 @@
 					<br />
 
 					<label for = "game_reldate" class="formwidths">Release Date: </label>
-					<input id="game_formedreldate" type = "date" name = "game_editreldate" />
+					<input id="game_formedreldate" type = "date" name = "game_editreldate" required/>
 					<br />
 					<br />
 
@@ -131,6 +131,66 @@
 				{% csrf_token %}
 
 			</form>
+			</center>
+		</div>
+
+		<div class="charactercontent">
+			<center>
+				{% for game in specificgame %}
+				<a href="{% url 'characters' game.Game_ID %}">Click here to go to the Characters section.</a>
+				{% endfor %}
+			</center>
+		</div>
+
+		<div class="gachacreate">
+			<center>
+			{% for game in specificgame %}
+			<form id="formStory" method="POST" action="{% url 'gachabanners' game.Game_ID %}">
+			{% endfor %}
+				<center><h4>Create a new gacha banner entry here.</h4></center>
+				<label for = "banner_name" class="formwidths">Banner Name: </label>
+				<input id="banner_name" type = "text" name = "banner_name" placeholder="Input the name of the banner here!" maxlength="80" size="25" required />
+				<br />
+				<br />
+
+				<label for = "banner_type" class="formwidths"> Banner Rarity: </label>
+				<select name="banner_type" id="banner_type">
+					<option value="Limited">Limited</option>
+					<option value="Collaboration">Collaboration</option>
+					<option value="Standard">Standard</option>
+				</select>
+
+				<br />
+				<br />
+				<label for = "gacha_desc" class="formwidths">Banner Description: </label>
+				<br />
+				<textarea id="gacha_formdesc" rows = "10" cols="50" name = "gacha_desc" placeholder="Input any description about the gacha banner here." required></textarea>
+				<br />
+				<br />
+
+				<label for = "gacha_reldate" class="formwidths">Release Date: </label>
+				<input id="gacha_formedreldate" type = "date" name = "gacha_reldate" required/>
+				<br />
+				<br />
+
+				<label for = "gacha_enddate" class="formwidths">End Date: </label>
+				<input id="gacha_formedenddate" type = "date" name = "gacha_enddate" required/>
+				<br />
+				<br />
+
+				<center><input type = "submit" id = "confirmGame" value="Create!" /></center>
+
+				{% csrf_token %}
+
+			</form>
+			</center>
+		</div>
+
+		<div class="gachacontent">
+			<center>
+				{% for game in specificgame %}
+				<a href="{% url 'gachabanners' game.Game_ID %}">Click here to go to the Gacha section.</a>
+				{% endfor %}
 			</center>
 		</div>
 
