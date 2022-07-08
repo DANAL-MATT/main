@@ -11,16 +11,19 @@ def MainPage(request):
         return redirect('/')
     samplename = Feedback.objects.all()
     return render(request, 'mainpage.html', {'forstoring': samplename})
-    # return render(request, 'mainpage.html')
 
-    # return render(request, 'mainpage.html', {'postName': request.POST.get('user_name'), 'postEmail': request.POST.get('user_email'), 'postNumber': request.POST.get('user_number'), 'postQuery': request.POST.get('user_query')})
+def DelFeed(request):
+    deletefeed = Feedback.objects.all()
+    deletefeed.delete()
+    return redirect('/')
+    return render(request, 'mainpage.html', {'deletefeed':deletefeed})
 
-def SecondPage(request):
-    samplename = Feedback.objects.all()
-    return render(request, 'secondpage.html', {'forstoring': samplename})
+# def SecondPage(request):
+#     samplename = Feedback.objects.all()
+#     return render(request, 'secondpage.html', {'forstoring': samplename})
 
-def CalPage(request):
-    return render(request, 'gachacalculator.html')
+# def CalPage(request):
+#     return render(request, 'gachacalculator.html')
 
 def GamesPage(request):
     if request.method == 'POST':
@@ -62,6 +65,10 @@ def StoryPage(request, gameID):
     storystorage = Storylines.objects.all()
     return render(request, 'storylines.html', {'stories': storystorage})
 
+def ViewStory(request):
+    storyviews = Storylines.objects.all()
+    return render(request, 'storylines.html', {'storyviews':storyviews})
+
 # def UpStory(request, storyID):
 #     storynum = Storylines.objects.get(Chapter_ID=storyID)
 #     storynum.Chapter_Name = request.POST['game_editname']
@@ -96,6 +103,10 @@ def DelChar(request, charID):
     chardelete.delete()
     return redirect('/games')
     return render(request, 'characters.html', {'chardelete':chardelete})
+
+def ViewChars(request):
+    charviews = Characters.objects.all()
+    return render(request, 'characters.html', {'charviews':charviews})
 
 def GachaPage(request, gameID):
     if request.method == 'POST':

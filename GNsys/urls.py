@@ -20,8 +20,7 @@ from GotchaSys import views
 
 urlpatterns = [
     path('', views.MainPage, name='mainpage'),
-    path('secondpage', views.SecondPage),
-    path('calculator', views.CalPage),
+    path('delete', views.DelFeed, name='feeddel'),
     path('games', views.GamesPage, name='games'),
     url(r'^gamepage/(\d+)$', views.IndGame, name='gamepage'),
     url(r'^gamepage/(\d+)/edit$', views.UpGame, name='updategame'),
@@ -33,5 +32,8 @@ urlpatterns = [
     url(r'^gamepage/(\d+)/characters/delete$', views.DelChar, name='chardelete'),
     url(r'^gamepage/(\d+)/banners$', views.GachaPage, name='gachabanners'),
     url(r'^gamepage/(\d+)/banners/delete$', views.DelGacha, name='gachadelete'),
+    path('gamepage/storylines', views.ViewStory, name='storyviewing'),
+    path('gamepage/characters', views.ViewChars, name='charviewing'),
+    path('gamepage/storylines', views.ViewStory, name='storyviewing'),
     url('admin/', admin.site.urls),
 ]

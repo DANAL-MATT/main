@@ -18,16 +18,41 @@
  -->
 		<div class="authordescription">
 
-			<h5><center>
-				Greetings! This is the first page of the Boilerplate project.
+			<h2><center>
+				Feecback by the Users!
+				<table border="1">
+					
+					<tr>
+						<th>Name</th>
+						<th>E-mail</th>
+						<th>Number</th>
+						<th>Query</th>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod leo id leo porta imperdiet at ac tellus. Donec lectus nulla, maximus nec est id, pulvinar gravida magna. Aenean tincidunt scelerisque nisl, vitae sollicitudin est rhoncus ut. Aliquam eget blandit risus. Pellentesque ut metus dui. Vestibulum velit justo, finibus vel viverra nec, blandit id urna. Pellentesque in molestie nibh. Suspendisse consequat sit amet sem nec malesuada. Mauris velit ipsum, sollicitudin vitae sagittis ut, iaculis eget magna.</p>
+					</tr>
 
-				<p> Curabitur euismod, ex non sagittis tristique, orci dui blandit sem, sed tristique mauris lectus a risus. Morbi euismod magna mauris. Donec vestibulum hendrerit neque at tristique. Curabitur rutrum nunc non tincidunt pretium. Mauris feugiat volutpat tortor ac dapibus. In mollis dignissim suscipit. In eleifend, nulla vitae egestas vestibulum, nulla tortor placerat leo, eu feugiat est neque in turpis. Fusce sed faucibus odio, vitae bibendum ex. Nam quis turpis scelerisque, hendrerit turpis id, sollicitudin sem. Phasellus egestas arcu ligula, at aliquam lectus efficitur at. Quisque dolor tortor, mattis nec semper nec, aliquam ultricies leo. Pellentesque augue nibh, fringilla finibus facilisis at, porta non lectus. Aenean scelerisque non mi eu tincidunt. Etiam ultricies augue erat, a dictum sapien pulvinar quis. </p>
+					{% for item in forstoring %}
 
-				<p><a href="/secondpage">Click here to go to the second page.</a></p>
+					<tr>
 
-			</center></h5>
+					<td>{{item.name}}</td>
+
+					<td>{{item.email}}</td>
+
+					<td>{{item.number}}</td>
+
+					<td>{{item.query}}</td>
+
+					<br />
+
+					</tr>
+
+					{% endfor %}
+
+				</table>
+
+			<a href="{% url 'feeddel' %}">DELETE</a>
+
+			</center></h2>
 
 		</div>
 
@@ -48,21 +73,11 @@
 				<br />
 				<input id="numAuthor" type = "tel" name = "user_number" size="30" />
 				<br />
-				<input id="checkAuthor" type="checkbox" name="nophonenumber" value="nophonenumber" onclick="checkNumber('checkAuthor', 'numAuthor')"> Check this if not applicable.
-				<br />
 				<br />
 
-				<label for="dropdown_select" class="formwidths">Query Type: </label>
-				<select id="dropdownAuthor" name="dropdown_select">
-					<option value="Featured/Personal" title="For questions that can be featured in the pages.">Featured/Personal</option>
-					<option value="Business" title="For any inquiries about the pages themselves; these will not be featured.">Business</option>
-					<option value="Others" title="For other inquiries that are not part of the two other criterias.">Others</option>
-				</select>
-				<br />
-				<br />
 
 				<label for = "user_query" class="formwidths">Query: </label>
-				<textarea id="queryAuthor" rows = "10" cols="30" name = "user_query" placeholder="Any questions? Queries to tell me?" required></textarea>
+				<textarea id="queryAuthor" rows = "10" cols="50" name = "user_query" placeholder="Any questions? Queries to tell me?" required></textarea>
 				<br />
 
 				<center><input type = "submit" id = "confirmAuthor" value="Proceed!" /></center>

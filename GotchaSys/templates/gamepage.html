@@ -35,7 +35,7 @@
 				{% endfor %}
 					<center><h4>Edit the game's entries here.</h4></center>
 					<label for = "game_name" class="formwidths">Game Name: </label>
-					<input id="game_formedname" type = "text" name = "game_editname" placeholder="Up to 40 characters!" maxlength="40" size="25" />
+					<input id="game_formedname" type = "text" name = "game_editname" placeholder="Up to 40 characters!" maxlength="40" size="25" required/>
 					<br />
 					<br />
 
@@ -45,13 +45,13 @@
 					<br />
 
 					<label for = "game_genre" class="formwidths">Genre: </label>
-					<input id="game_formedgenre" type = "text" name = "game_editgenre" placeholder="ex. Action, Adventure..." maxlength="40" size="15" />
+					<input id="game_formedgenre" type = "text" name = "game_editgenre" placeholder="ex. Action, Adventure..." maxlength="40" size="15" required/>
 					<br />
 					<br />
 
 					<label for = "game_description" class="formwidths">Game Description: </label>
 					<br />
-					<textarea id="game_formeddesc" rows = "10" cols="50" name = "game_editdescription" placeholder="Input the synopsis or any needed description here."></textarea>
+					<textarea id="game_formeddesc" rows = "10" cols="50" name = "game_editdescription" placeholder="Input the synopsis or any needed description here." required></textarea>
 					<br />
 
 					<center><input type = "submit" id = "confirmGame" value="Edit!" /></center>
